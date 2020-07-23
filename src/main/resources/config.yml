@@ -1,0 +1,72 @@
+# PUT A SPACE AFTER EACH DASH IDIOTS!
+# if you want to add more channels, add another dash but make sure you add the channel name, oauth, and id
+# your channel name e.g. twitch.tv/jstN0body -> jstN0body
+channel:
+  - "channel"
+
+# use https://twitchapps.com/tmi to get your oauth token
+# make sure to keep quotes around the token
+# the first entry will be the account used to login to chat
+oauth:
+  - "oauth"
+
+# use https://codepen.io/Alca/pen/yLBdjyb and type your channel name to get your id
+channelid:
+  - "id"
+
+# these are the bit amounts for certain actions to happen to the players
+# if you don't want a certain action to happen set the cost to 0
+bitsforcreeper: 15 # spawns a creeper at each person
+
+bitsforhalfhealth: 50 # puts players to half of their current health
+
+bitsfordiamonds: 100  # gives players an amount of diamonds
+amountofdiamonds: 10 # the amounts of diamonds to give
+
+bitsforrandomtp: 150 # randomly teleport the players
+
+bitsforweather: 200 # thunderstorms for a certain amount of time
+weathertime: 6000 # the time in ticks (20 ticks = 1 second)
+
+bitsfordimensionswitch: 250 # swap the players to the nether or back to the overworld
+netherworld: world_nether # the name of your nether world (the name of your main world followed by _nether)
+world: world # the name of your world
+
+bitsforinventoryclear: 300 # clears the players' inventories
+
+bitsforchickennugget: 350 # gives everyone a chicken nugget (don't question)
+
+bitsfortnt: 400 # summons tnt yay
+
+
+bitsforsky: 450 # teleport players to a platform in the sky
+height: 250 # how high up the platform will be
+
+bitsforfood: 500 # gives players some food
+foodamount: 16 # amount of food to give
+
+bitsforwither: 2500
+
+
+# these are the names of the channel point rewards to do the actions above
+# make sure to add channel point rewards with these names to your twitch or change the names below to match already existing rewards
+# remove the name if you don't want one to happen
+channelpoints:
+  creeper: "spawn creeper"
+  halfhealth: "half health"
+  diamonds: "give diamonds"
+  randomtp: "random tp"
+  weather: "thunderstorm"
+  dimensionswitch: "switch dimensions"
+  inventoryclear: "clear inventory"
+  chickennugget: "give chicken nugget"
+  tnt: "spawn tnt"
+  sky: "tp to sky"
+  food: "give food"
+  wither: "spawn wither"
+
+
+# This will keep track of the followers of your included streamers so that people can't re-follow over and over to display the in-game notification.
+# Only change the PATH-TO-SERVER part because the plugin will auto-generate the files for you in the TwitchIntegration folder in your plugins folder.
+# (also change C to something the letter of the drive that your server is on
+followerlist: "C:/PATH-TO-SERVER/plugins/TwitchIntegration/followers/"

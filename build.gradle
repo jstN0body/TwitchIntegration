@@ -1,0 +1,28 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
+    id 'java'
+}
+
+group 'org.example'
+version ''
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven {
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+        content {
+            includeGroup 'org.bukkit'
+            includeGroup 'org.spigotmc'
+        }
+    }
+    maven {url 'https://jitpack.io'}
+}
+
+dependencies {
+    compile group: "com.github.twitch4j", name: "twitch4j", version: "1.0.0"
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.1'
+    compileOnly 'org.spigotmc:spigot-api:1.16.1-R0.1-SNAPSHOT'
+    compile group: 'com.github.jstN0body', name: 'DataManager', version: '3.0'
+}
