@@ -64,3 +64,7 @@ channelpoints:
   sky: "tp to sky"
   food: "give food"
   wither: "spawn wither"
+
+# add channel names here to omit their messages from the in-game chat
+mutedusers:
+  - nightbot
