@@ -64,9 +64,3 @@ channelpoints:
   sky: "tp to sky"
   food: "give food"
   wither: "spawn wither"
-
-
-# This will keep track of the followers of your included streamers so that people can't re-follow over and over to display the in-game notification.
-# Only change the PATH-TO-SERVER part because the plugin will auto-generate the files for you in the TwitchIntegration folder in your plugins folder.
-# (also change C to something the letter of the drive that your server is on
-followerlist: "C:/PATH-TO-SERVER/plugins/TwitchIntegration/followers/"

@@ -177,9 +177,12 @@ public class Actions {
             @Override
             public void run() {
                 Object[] players = Bukkit.getOnlinePlayers().toArray();
+                int index = (int) (Math.random() * (players.length + 1) + 0);
+                Player player = (Player) players[index];
+                player.getWorld().spawnEntity(player.getLocation(), EntityType.WITHER);
                 for (Object object : players) {
-                    Player player = (Player) object;
-                    player.getWorld().spawnEntity(player.getLocation(), EntityType.WITHER);
+                    Player p = (Player) object;
+                    p.teleport(player.getLocation());
                 }
             }
         }.runTask(plugin);

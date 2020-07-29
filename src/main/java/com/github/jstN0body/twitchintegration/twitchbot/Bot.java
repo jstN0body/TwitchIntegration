@@ -39,7 +39,6 @@ public class Bot {
         List<String> ids = config.getStringList("channelid");
         TwitchPubSub twitchPubSub = twitchClient.getPubSub();
         for (int i = 0 ; i < credentials.size() ; i++) {
-                twitchPubSub.listenForFollowingEvents(credentials.get(i), ids.get(i));
                 twitchPubSub.listenForCheerEvents(credentials.get(i), ids.get(i));
                 twitchPubSub.listenForSubscriptionEvents(credentials.get(i), ids.get(i));
                 twitchPubSub.listenForChannelPointsRedemptionEvents(credentials.get(i), ids.get(i));
@@ -52,7 +51,6 @@ public class Bot {
         new ChatEvent(eventHandler);
         new CheerEvent(pubSubHandler, plugin);
         new SubscribeEvent(pubSubHandler);
-        new FollowEvent(pubSubHandler, plugin);
         new ChannelPointRedeem(pubSubHandler, plugin);
     }
 }

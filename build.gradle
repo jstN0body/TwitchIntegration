@@ -16,7 +16,6 @@ repositories {
             includeGroup 'org.spigotmc'
         }
     }
-    maven {url 'https://jitpack.io'}
 }
 
 dependencies {
@@ -24,5 +23,4 @@ dependencies {
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
     testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.1'
     compileOnly 'org.spigotmc:spigot-api:1.16.1-R0.1-SNAPSHOT'
-    compile group: 'com.github.jstN0body', name: 'DataManager', version: '3.0'
 }
