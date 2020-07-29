@@ -23,7 +23,7 @@ public class CheerEvent {
         if (!EnableCommand.integrationEnabled) return;
 
 
-        int bits = event.getData().getBitsUsed();
+        Integer bits = event.getData().getBitsUsed();
         System.out.println(bits);
         Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + event.getData().getUserName() + " has cheered " + bits + " bits!!!");
         Actions actions = new Actions(plugin);
