@@ -45,7 +45,7 @@ public class Bot {
         }
 
         SimpleEventHandler eventHandler = twitchChat.getEventManager().getEventHandler(SimpleEventHandler.class);
-        SimpleEventHandler pubSubHandler = twitchPubSub.getEventManager().getEventHandler(SimpleEventHandler.class);
+        SimpleEventHandler pubSubHandler = twitchClient.getEventManager().getEventHandler(SimpleEventHandler.class);
 
         new TwitchRaidEvent(eventHandler);
         new ChatEvent(eventHandler);
