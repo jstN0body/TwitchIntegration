@@ -19,7 +19,7 @@ public class TwitchRaidEvent {
         Object[] players = Bukkit.getOnlinePlayers().toArray();
         for (Object object : players) {
             Player player = (Player) object;
-            player.addPotionEffect(new PotionEffect(PotionEffectType.BAD_OMEN, 36000, event.getViewers()));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.BAD_OMEN, 36000, Math.round(event.getViewers() / 3)));
         }
     }
 }
