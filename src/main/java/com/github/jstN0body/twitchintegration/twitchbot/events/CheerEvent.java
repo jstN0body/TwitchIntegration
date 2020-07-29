@@ -22,11 +22,12 @@ public class CheerEvent {
     public void onCheer(ChannelBitsEvent event) {
         if (!EnableCommand.integrationEnabled) return;
 
-        FileConfiguration config = plugin.getConfig();
+
         int bits = event.getData().getBitsUsed();
         System.out.println(bits);
         Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + event.getData().getUserName() + " has cheered " + bits + " bits!!!");
         Actions actions = new Actions(plugin);
+        FileConfiguration config = plugin.getConfig();
 
         if (bits == config.getInt("bitsforcreeper")) {
             actions.spawnCreeper();
