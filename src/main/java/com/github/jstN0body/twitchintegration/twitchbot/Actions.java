@@ -75,7 +75,11 @@ public class Actions {
     }
 
     public void weather(FileConfiguration config) {
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "weather thunder " + config.getInt("weathertime"));
+        for (Object object : Bukkit.getOnlinePlayers().toArray()) {
+            Player player = (Player) object;
+            player.getWorld().setThundering(true);
+            player.getWorld().setThunderDuration(config.getInt("weathertime"));
+        }
     }
 
     public void switchDimensions(FileConfiguration config) {
