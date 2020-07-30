@@ -77,8 +77,8 @@ public class Actions {
     public void weather(FileConfiguration config) {
         for (Object object : Bukkit.getOnlinePlayers().toArray()) {
             Player player = (Player) object;
-            player.getWorld().setThundering(true);
-            player.getWorld().setThunderDuration(config.getInt("weathertime"));
+            player.getWorld().setStorm(true);
+            player.getWorld().setWeatherDuration(config.getInt("weathertime"));
         }
     }
 
