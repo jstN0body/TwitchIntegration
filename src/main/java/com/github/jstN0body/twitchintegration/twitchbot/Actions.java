@@ -195,4 +195,13 @@ public class Actions {
     private boolean inNether(Player player, FileConfiguration config) {
         return player.getWorld() == Bukkit.getWorld(config.getString("netherworld"));
     }
+
+    public void addToFilter(String block) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "filter " + block);
+            }
+        }.runTask(plugin);
+    }
 }
