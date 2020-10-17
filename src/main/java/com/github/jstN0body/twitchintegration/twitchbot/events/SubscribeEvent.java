@@ -22,16 +22,11 @@ public class SubscribeEvent {
     public void onSubscribe(ChannelSubscribeEvent event) {
         if (!EnableCommand.integrationEnabled) return;
         Bukkit.broadcastMessage(ChatColor.BOLD + "" + ChatColor.YELLOW + event.getData().getRecipientDisplayName() + " has subscribed to " + event.getData().getChannelName());
-        Object[] players = Bukkit.getOnlinePlayers().toArray();
-        for (Object object : players) {
-            Player player = (Player) object;
+        for (Player player : Bukkit.getOnlinePlayers()) {
             Firework firework = (Firework) player.getWorld().spawnEntity(player.getLocation(), EntityType.FIREWORK);
-            FireworkMeta fireworkMeta = firework.getFireworkMeta();
-            fireworkMeta.addEffect(FireworkEffect.builder()
-                    .withColor(Color.fromRGB(71, 200, 255), Color.fromRGB(252, 124, 229))
-                    .withTrail()
-                    .with(FireworkEffect.Type.BALL_LARGE).build());
-            firework.setFireworkMeta(fireworkMeta);
+            FireworkMeta meta = firework.getFireworkMeta();
+            meta.addEffect(FireworkEffect.builder().trail(true).withColor(Color.AQUA).with(FireworkEffect.Type.BALL_LARGE).build());
+            firework.setFireworkMeta(meta);
         }
     }
 }

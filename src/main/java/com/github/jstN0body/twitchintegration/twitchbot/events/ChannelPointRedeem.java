@@ -7,6 +7,7 @@ import com.github.philippheuer.events4j.simple.SimpleEventHandler;
 import com.github.twitch4j.pubsub.events.RewardRedeemedEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class ChannelPointRedeem {
@@ -52,6 +53,12 @@ public class ChannelPointRedeem {
             actions.giveFood(config);
         } else if (name.equalsIgnoreCase(config.getString("channelpoints.wither"))) {
             actions.spawnWither();
+        } else if (name.equalsIgnoreCase(config.getString("channelpoints.addtofilter"))) {
+            try {
+                actions.addToFilter(Material.matchMaterial(event.getRedemption().getUserInput()).name());
+            } catch (Exception ignored) {
+                Bukkit.broadcastMessage(ChatColor.RED + "User has not specified a block to filter.");
+            }
         }
     }
 }

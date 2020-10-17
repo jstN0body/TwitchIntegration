@@ -7,6 +7,7 @@ import com.github.philippheuer.events4j.simple.SimpleEventHandler;
 import com.github.twitch4j.pubsub.events.ChannelBitsEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class CheerEvent {
@@ -53,6 +54,12 @@ public class CheerEvent {
             actions.giveFood(config);
         } else if (bits == config.getInt("bitsforwither")) {
             actions.spawnWither();
+        } else if (bits == config.getInt("bitsforfilter")) {
+            try {
+                actions.addToFilter(Material.matchMaterial(event.getData().getChatMessage()).name());
+            } catch (Exception ignored) {
+                Bukkit.broadcastMessage(ChatColor.RED + "User has not specified a block to filter.");
+            }
         }
     }
 }
