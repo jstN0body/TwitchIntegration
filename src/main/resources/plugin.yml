@@ -1,6 +1,6 @@
 name: TwitchIntegration
 main: com.github.jstN0body.twitchintegration.Main
-version: "1.3-SNAPSHOT"
+version: "1.4-SNAPSHOT"
 author: jstN0body
 description: Thank you to TigerCipher, Hexafice, and Prodigy from the twitch4j discord server for helping me with parts of this.
 
