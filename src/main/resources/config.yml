@@ -48,6 +48,7 @@ foodamount: 16 # amount of food to give
 
 bitsforwither: 2500
 
+bitsforfilter: 550 # add a block to the block filter (this block will be able to be broken when nobreak is on.)
 
 # these are the names of the channel point rewards to do the actions above
 # make sure to add channel point rewards with these names to your twitch or change the names below to match already existing rewards
