@@ -64,7 +64,10 @@ channelpoints:
   sky: "tp to sky"
   food: "give food"
   wither: "spawn wither"
+  addtofilter: "filter block"
 
 # add channel names here to omit their messages from the in-game chat
 mutedusers:
   - nightbot
+  - streamelements
+  - streamlabs

@@ -48,7 +48,6 @@ public class Bot {
         SimpleEventHandler pubSubHandler = twitchClient.getEventManager().getEventHandler(SimpleEventHandler.class);
 
         new TwitchRaidEvent(eventHandler);
-        new ChatEvent(eventHandler, plugin);
         new CheerEvent(pubSubHandler, plugin);
         new SubscribeEvent(pubSubHandler);
         new ChannelPointRedeem(pubSubHandler, plugin);
