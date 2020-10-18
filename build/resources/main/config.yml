@@ -4,7 +4,8 @@
 channel:
   - "channel"
 
-# use https://twitchapps.com/tmi to get your oauth token
+# use https://twitchtokengenerator.com/ to get your oauth token (press "uhhh what? Just take me to the site.)
+# Select ALL scopes
 # make sure to keep quotes around the token
 # the first entry will be the account used to login to chat
 oauth:
@@ -21,7 +22,7 @@ bitsforcreeper: 15 # spawns a creeper at each person
 bitsforhalfhealth: 50 # puts players to half of their current health
 
 bitsfordiamonds: 100  # gives players an amount of diamonds
-amountofdiamonds: 10 # the amounts of diamonds to give
+amountofdiamonds: 1 # the amounts of diamonds to give
 
 bitsforrandomtp: 150 # randomly teleport the players
 
@@ -47,6 +48,11 @@ foodamount: 16 # amount of food to give
 
 bitsforwither: 2500
 
+bitsforfilter: 550 # add a block to the block filter (this block will be able to be broken when nobreak is on.)
+
+bitsforlava: 500
+
+bitsformob: 1000
 
 # these are the names of the channel point rewards to do the actions above
 # make sure to add channel point rewards with these names to your twitch or change the names below to match already existing rewards
@@ -64,7 +70,10 @@ channelpoints:
   sky: "tp to sky"
   food: "give food"
   wither: "spawn wither"
+  addtofilter: "filter block"
 
 # add channel names here to omit their messages from the in-game chat
 mutedusers:
   - nightbot
+  - streamelements
+  - streamlabs

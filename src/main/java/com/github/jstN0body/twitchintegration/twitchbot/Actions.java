@@ -15,14 +15,14 @@ public class Actions {
 
     public Actions(Main plugin) {this.plugin = plugin;}
 
-    public void spawnCreeper() {
+    public void spawnMob(EntityType e) {
         new BukkitRunnable() {
             @Override
             public void run() {
                 Object[] players = Bukkit.getOnlinePlayers().toArray();
                 for (Object object : players) {
                     Player player = (Player) object;
-                    player.getWorld().spawnEntity(player.getLocation(), EntityType.CREEPER);
+                    player.getWorld().spawnEntity(player.getLocation(), e);
                 }
             }
         }.runTask(plugin);
@@ -201,6 +201,39 @@ public class Actions {
             @Override
             public void run() {
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "filter " + block);
+            }
+        }.runTask(plugin);
+    }
+
+    public void blockToLava() {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    player.getTargetBlock(null, 5).setType(Material.LAVA);
+                }
+            }
+        }.runTask(plugin);
+    }
+
+    public void burnPlayer() {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    player.getLocation().getBlock().setType(Material.FIRE);
+                }
+            }
+        }.runTask(plugin);
+    }
+
+    public void killPlayer() {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    player.damage(9999999);
+                }
             }
         }.runTask(plugin);
     }

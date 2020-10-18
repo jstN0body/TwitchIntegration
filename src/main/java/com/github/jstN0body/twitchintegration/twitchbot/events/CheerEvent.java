@@ -9,6 +9,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.EntityType;
 
 public class CheerEvent {
 
@@ -31,7 +32,7 @@ public class CheerEvent {
         FileConfiguration config = plugin.getConfig();
 
         if (bits == config.getInt("bitsforcreeper")) {
-            actions.spawnCreeper();
+            actions.spawnMob(EntityType.CREEPER);
         } else if (bits == config.getInt("bitsforhalfhealth")) {
             actions.halfHealth();
         } else if (bits == config.getInt("bitsfordiamonds")) {

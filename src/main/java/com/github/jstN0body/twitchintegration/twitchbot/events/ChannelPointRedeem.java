@@ -9,6 +9,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.EntityType;
 
 public class ChannelPointRedeem {
 
@@ -30,7 +31,7 @@ public class ChannelPointRedeem {
         Actions actions = new Actions(plugin);
 
         if (name.equalsIgnoreCase(config.getString("channelpoints.creeper"))) {
-            actions.spawnCreeper();
+            actions.spawnMob(EntityType.CREEPER);
         } else if (name.equalsIgnoreCase(config.getString("channelpoints.halfhealth"))) {
             actions.halfHealth();
         } else if (name.equalsIgnoreCase(config.getString("channelpoints.diamonds"))) {
