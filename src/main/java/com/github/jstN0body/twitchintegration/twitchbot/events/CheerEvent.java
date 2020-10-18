@@ -61,6 +61,19 @@ public class CheerEvent {
             } catch (Exception ignored) {
                 Bukkit.broadcastMessage(ChatColor.RED + "User has not specified a block to filter.");
             }
+        } else if (bits == config.getInt("bitsforlava")) {
+            actions.blockToLava();
+        } else if (bits == config.getInt("bitsformob")) {
+            EntityType e = EntityType.valueOf(event.getData().getChatMessage().toUpperCase());
+            if (config.getStringList("mobfilter").contains(e.name())) {
+                actions.spawnMob(EntityType.CREEPER);
+            } else {
+                actions.spawnMob(e);
+            }
+        } else if (bits == config.getInt("bitsforburn")) {
+            actions.burnPlayer();
+        } else if (bits == config.getInt("bitsforkill")) {
+            actions.killPlayer();
         }
     }
 }

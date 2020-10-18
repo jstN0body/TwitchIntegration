@@ -60,6 +60,19 @@ public class ChannelPointRedeem {
             } catch (Exception ignored) {
                 Bukkit.broadcastMessage(ChatColor.RED + "User has not specified a block to filter.");
             }
+        } else if (name.equalsIgnoreCase(config.getString("channelpoints.lava"))) {
+            actions.blockToLava();
+        } else if (name.equalsIgnoreCase(config.getString("channelpoints.mob"))) {
+            EntityType e = EntityType.valueOf(event.getRedemption().getUserInput());
+            if (config.getStringList("mobfilter").contains(e.name())) {
+                actions.spawnMob(EntityType.CREEPER);
+            } else {
+                actions.spawnMob(e);
+            }
+        } else if (name.equalsIgnoreCase("channelpoints.burn")) {
+            actions.burnPlayer();
+        } else if (name.equalsIgnoreCase("channelpoints.kill")) {
+            actions.killPlayer();
         }
     }
 }
