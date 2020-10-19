@@ -55,11 +55,7 @@ public class ChannelPointRedeem {
         } else if (name.equalsIgnoreCase(config.getString("channelpoints.wither"))) {
             actions.spawnWither();
         } else if (name.equalsIgnoreCase(config.getString("channelpoints.addtofilter"))) {
-            try {
-                actions.addToFilter(Material.matchMaterial(event.getRedemption().getUserInput()).name());
-            } catch (Exception ignored) {
-                Bukkit.broadcastMessage(ChatColor.RED + "User has not specified a block to filter.");
-            }
+            actions.addToFilter(Material.matchMaterial(event.getRedemption().getUserInput()).name());
         } else if (name.equalsIgnoreCase(config.getString("channelpoints.lava"))) {
             actions.blockToLava();
         } else if (name.equalsIgnoreCase(config.getString("channelpoints.mob"))) {

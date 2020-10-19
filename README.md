@@ -1,7 +1,7 @@
 # TwitchIntegration
  Twitch integration for Minecraft.
 
-Download project as a plugin for your server [here.](https://github.com/jstN0body/TwitchIntegration/raw/master/build/libs/TwitchIntegration.jar) 
+Download project as a plugin for your server [here.](https://github.com/jstN0body/TwitchIntegration/raw/master/build/libs/TwitchIntegration-all.jar) 
 
 Download the cavespread datapack [here.](https://github.com/jstN0body/TwitchIntegration/raw/master/src/main/resources/cavespread.zip) (This is required for the plugin to function)
 

@@ -50,9 +50,14 @@ bitsforwither: 2500
 
 bitsforfilter: 550 # add a block to the block filter (this block will be able to be broken when nobreak is on.)
 
-bitsforlava: 500
+bitsforlava: 500 # turn the player's targeted block to lava
 
-bitsformob: 1000
+bitsformob: 1000 # spawn a requested mob
+mobfilter: ["WITHER", "ENDER_DRAGON"] # mobs that cannot be requested (to be replaced by a creeper)
+
+bitsforburn: 125 # light the player on fire
+
+bitsforkill: 900 # straight up kill the player
 
 # these are the names of the channel point rewards to do the actions above
 # make sure to add channel point rewards with these names to your twitch or change the names below to match already existing rewards
@@ -70,7 +75,11 @@ channelpoints:
   sky: "tp to sky"
   food: "give food"
   wither: "spawn wither"
-  addtofilter: "filter block"
+  addtofilter: "filter block" # requires user input
+  lava: "target block to lava"
+  mob: "spawn mob" # requires user input
+  burn: "burn player"
+  kill: "kill player"
 
 # add channel names here to omit their messages from the in-game chat
 mutedusers:
