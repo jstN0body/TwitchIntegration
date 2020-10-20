@@ -250,11 +250,11 @@ public class Actions {
                     if (inNether(player, config)) {
                         CustomMap.giveMap(player,
                                 nether.locateNearestStructure(player.getLocation(), StructureType.NETHER_FORTRESS, 1000, true),
-                                user);
+                                user, "Nether Fortress Map");
                     } else {
                         CustomMap.giveMap(player,
                                 overworld.locateNearestStructure(player.getLocation(), StructureType.DESERT_PYRAMID, 1000, true),
-                                user);
+                                user, "Desert Temple Map");
                     }
                 }
             }

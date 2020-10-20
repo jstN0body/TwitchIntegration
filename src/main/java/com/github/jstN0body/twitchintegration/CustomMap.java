@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomMap {
-    public static void giveMap(Player player, Location location, String user) {
+    public static void giveMap(Player player, Location location, String user, String name) {
         ItemStack map = new ItemStack(Material.MAP);
         MapMeta meta = (MapMeta) map.getItemMeta();
         MapView view = Bukkit.createMap(location.getWorld());
@@ -22,7 +22,7 @@ public class CustomMap {
         view.setCenterX(location.getBlockX());
         view.setCenterZ(location.getBlockZ());
         meta.setMapView(view);
-        meta.setDisplayName(location.getBlockX() + ", " + location.getBlockZ());
+        meta.setDisplayName(name);
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.DARK_PURPLE + "Presented to " + player.getName());
         lore.add(ChatColor.DARK_PURPLE + "by " + user);
