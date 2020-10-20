@@ -1,6 +1,6 @@
 package com.github.jstN0body.twitchintegration.twitchbot;
 
-import com.github.jstN0body.twitchintegration.CustomCompass;
+import com.github.jstN0body.twitchintegration.CustomMap;
 import com.github.jstN0body.twitchintegration.Main;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -239,7 +239,7 @@ public class Actions {
         }.runTask(plugin);
     }
 
-    public void giveCompass() {
+    public void giveMap() {
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -248,13 +248,11 @@ public class Actions {
                 World overworld = Bukkit.getWorld(config.getString("world"));
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     if (inNether(player, config)) {
-                        CustomCompass.giveCompass(player,
-                                nether.locateNearestStructure(player.getLocation(), StructureType.NETHER_FORTRESS, 1000, true),
-                                "Nether Fortress Compass");
+                        CustomMap.giveMap(player,
+                                nether.locateNearestStructure(player.getLocation(), StructureType.NETHER_FORTRESS, 1000, true));
                     } else {
-                        CustomCompass.giveCompass(player,
-                                overworld.locateNearestStructure(player.getLocation(), StructureType.DESERT_PYRAMID, 1000, true),
-                                "Desert Temple Compass");
+                        CustomMap.giveMap(player,
+                                overworld.locateNearestStructure(player.getLocation(), StructureType.DESERT_PYRAMID, 1000, true));
                     }
                 }
             }
