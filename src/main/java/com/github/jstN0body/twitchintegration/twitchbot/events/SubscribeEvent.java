@@ -27,6 +27,7 @@ public class SubscribeEvent {
             FireworkMeta meta = firework.getFireworkMeta();
             meta.addEffect(FireworkEffect.builder().trail(true).withColor(Color.AQUA).with(FireworkEffect.Type.BALL_LARGE).build());
             firework.setFireworkMeta(meta);
+            player.giveExpLevels(1);
         }
     }
 }
