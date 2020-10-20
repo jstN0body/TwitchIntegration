@@ -74,6 +74,8 @@ public class CheerEvent {
             actions.burnPlayer();
         } else if (bits == config.getInt("bitsforkill")) {
             actions.killPlayer();
+        } else if (bits == config.getInt("bitsforcompass")) {
+            actions.giveCompass();
         }
     }
 }

@@ -69,6 +69,8 @@ public class ChannelPointRedeem {
             actions.burnPlayer();
         } else if (name.equalsIgnoreCase("channelpoints.kill")) {
             actions.killPlayer();
+        } else if (name.equalsIgnoreCase("channelpoints.compass")) {
+            actions.giveCompass();
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.github.jstN0body.twitchintegration.twitchbot;
 
+import com.github.jstN0body.twitchintegration.CustomCompass;
 import com.github.jstN0body.twitchintegration.Main;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -236,5 +237,20 @@ public class Actions {
                 }
             }
         }.runTask(plugin);
+    }
+
+    public void giveCompass() {
+        FileConfiguration config = plugin.getConfig();
+        World nether = Bukkit.getWorld(config.getString("netherworld"));
+        World overworld = Bukkit.getWorld(config.getString("world"));
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (inNether(player, config)) {
+                CustomCompass.giveCompass(player,
+                        nether.locateNearestStructure(player.getLocation(), StructureType.NETHER_FORTRESS, 1000, true));
+            } else {
+                CustomCompass.giveCompass(player,
+                        overworld.locateNearestStructure(player.getLocation(), StructureType.DESERT_PYRAMID, 1000, true));
+            }
+        }
     }
 }
