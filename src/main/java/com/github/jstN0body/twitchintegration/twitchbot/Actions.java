@@ -240,19 +240,24 @@ public class Actions {
     }
 
     public void giveCompass() {
-        FileConfiguration config = plugin.getConfig();
-        World nether = Bukkit.getWorld(config.getString("netherworld"));
-        World overworld = Bukkit.getWorld(config.getString("world"));
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            if (inNether(player, config)) {
-                CustomCompass.giveCompass(player,
-                        nether.locateNearestStructure(player.getLocation(), StructureType.NETHER_FORTRESS, 1000, true),
-                        "Nether Fortress Compass");
-            } else {
-                CustomCompass.giveCompass(player,
-                        overworld.locateNearestStructure(player.getLocation(), StructureType.DESERT_PYRAMID, 1000, true),
-                        "Desert Temple Compass");
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                FileConfiguration config = plugin.getConfig();
+                World nether = Bukkit.getWorld(config.getString("netherworld"));
+                World overworld = Bukkit.getWorld(config.getString("world"));
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    if (inNether(player, config)) {
+                        CustomCompass.giveCompass(player,
+                                nether.locateNearestStructure(player.getLocation(), StructureType.NETHER_FORTRESS, 1000, true),
+                                "Nether Fortress Compass");
+                    } else {
+                        CustomCompass.giveCompass(player,
+                                overworld.locateNearestStructure(player.getLocation(), StructureType.DESERT_PYRAMID, 1000, true),
+                                "Desert Temple Compass");
+                    }
+                }
             }
-        }
+        }.runTask(plugin);
     }
 }
