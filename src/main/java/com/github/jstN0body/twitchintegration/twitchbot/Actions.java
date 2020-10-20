@@ -246,10 +246,12 @@ public class Actions {
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (inNether(player, config)) {
                 CustomCompass.giveCompass(player,
-                        nether.locateNearestStructure(player.getLocation(), StructureType.NETHER_FORTRESS, 1000, true));
+                        nether.locateNearestStructure(player.getLocation(), StructureType.NETHER_FORTRESS, 1000, true),
+                        "Nether Fortress Compass");
             } else {
                 CustomCompass.giveCompass(player,
-                        overworld.locateNearestStructure(player.getLocation(), StructureType.DESERT_PYRAMID, 1000, true));
+                        overworld.locateNearestStructure(player.getLocation(), StructureType.DESERT_PYRAMID, 1000, true),
+                        "Desert Temple Compass");
             }
         }
     }
