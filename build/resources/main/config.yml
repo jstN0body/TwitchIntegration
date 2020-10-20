@@ -59,6 +59,8 @@ bitsforburn: 125 # light the player on fire
 
 bitsforkill: 900 # straight up kill the player
 
+bitsforcompass: 1250 # give a compass to a structure (nether fortress if in nether, desert temple if in overworld)
+
 # these are the names of the channel point rewards to do the actions above
 # make sure to add channel point rewards with these names to your twitch or change the names below to match already existing rewards
 # remove the name if you don't want one to happen
@@ -80,6 +82,7 @@ channelpoints:
   mob: "spawn mob" # requires user input
   burn: "burn player"
   kill: "kill player"
+  compass: "target compass"
 
 # add channel names here to omit their messages from the in-game chat
 mutedusers:
