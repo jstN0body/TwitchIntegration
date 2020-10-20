@@ -239,7 +239,7 @@ public class Actions {
         }.runTask(plugin);
     }
 
-    public void giveMap() {
+    public void giveMap(String user) {
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -249,10 +249,12 @@ public class Actions {
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     if (inNether(player, config)) {
                         CustomMap.giveMap(player,
-                                nether.locateNearestStructure(player.getLocation(), StructureType.NETHER_FORTRESS, 1000, true));
+                                nether.locateNearestStructure(player.getLocation(), StructureType.NETHER_FORTRESS, 1000, true),
+                                user);
                     } else {
                         CustomMap.giveMap(player,
-                                overworld.locateNearestStructure(player.getLocation(), StructureType.DESERT_PYRAMID, 1000, true));
+                                overworld.locateNearestStructure(player.getLocation(), StructureType.DESERT_PYRAMID, 1000, true),
+                                user);
                     }
                 }
             }

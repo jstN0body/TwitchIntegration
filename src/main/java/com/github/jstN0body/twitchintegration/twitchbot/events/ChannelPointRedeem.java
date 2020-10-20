@@ -70,7 +70,7 @@ public class ChannelPointRedeem {
         } else if (name.equalsIgnoreCase("channelpoints.kill")) {
             actions.killPlayer();
         } else if (name.equalsIgnoreCase("channelpoints.compass")) {
-            actions.giveMap();
+            actions.giveMap(event.getRedemption().getUser().getDisplayName());
         }
     }
 }

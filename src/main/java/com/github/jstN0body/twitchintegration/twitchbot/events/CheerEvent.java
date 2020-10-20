@@ -75,7 +75,7 @@ public class CheerEvent {
         } else if (bits == config.getInt("bitsforkill")) {
             actions.killPlayer();
         } else if (bits == config.getInt("bitsforcompass")) {
-            actions.giveMap();
+            actions.giveMap(event.getData().getUserName());
         }
     }
 }
