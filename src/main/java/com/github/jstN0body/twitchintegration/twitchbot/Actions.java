@@ -239,22 +239,17 @@ public class Actions {
         }.runTask(plugin);
     }
 
-    public void giveMap(String user) {
+    public void giveMap() {
         new BukkitRunnable() {
             @Override
             public void run() {
-                FileConfiguration config = plugin.getConfig();
-                World nether = Bukkit.getWorld(config.getString("netherworld"));
-                World overworld = Bukkit.getWorld(config.getString("world"));
-                for (Player player : Bukkit.getOnlinePlayers()) {
-                    if (inNether(player, config)) {
-                        CustomMap.giveMap(player,
-                                nether.locateNearestStructure(player.getLocation(), StructureType.NETHER_FORTRESS, 1000, true),
-                                user, "Nether Fortress Map");
+                Object[] players = Bukkit.getOnlinePlayers().toArray();
+                for (Object object : players) {
+                    Player player = (Player) object;
+                    if (player.getWorld().getEnvironment() == World.Environment.NETHER) {
+                        Bukkit.dispatchCommand(player, "map " + player.getDisplayName() + " Fortress nether");
                     } else {
-                        CustomMap.giveMap(player,
-                                overworld.locateNearestStructure(player.getLocation(), StructureType.DESERT_PYRAMID, 1000, true),
-                                user, "Desert Temple Map");
+                        Bukkit.dispatchCommand(player, "map " + player.getDisplayName() + " Temple overworld");
                     }
                 }
             }
