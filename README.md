@@ -9,4 +9,5 @@ Check the [wiki](https://github.com/jstN0body/TwitchIntegration/wiki) for how to
 
 # License
 [License for this repository](https://github.com/jstN0body/TwitchIntegration/blob/master/LICENSE.md)
+
 [Twitch4j License](https://github.com/twitch4j/twitch4j/blob/master/LICENSE)
