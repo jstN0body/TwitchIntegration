@@ -201,7 +201,7 @@ public class Actions {
         new BukkitRunnable() {
             @Override
             public void run() {
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "filter " + block);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "filter " + block);
             }
         }.runTask(plugin);
     }

@@ -11,6 +11,8 @@ import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 
+import java.util.Objects;
+
 public class ChannelPointRedeem {
 
     private final Main plugin;
@@ -55,7 +57,8 @@ public class ChannelPointRedeem {
         } else if (name.equalsIgnoreCase(config.getString("channelpoints.wither"))) {
             actions.spawnWither();
         } else if (name.equalsIgnoreCase(config.getString("channelpoints.addtofilter"))) {
-            actions.addToFilter(Material.matchMaterial(event.getRedemption().getUserInput()).name());
+            String materialInput = event.getRedemption().getUserInput().replace('-', '_').toUpperCase();
+            Bukkit.broadcastMessage(materialInput);
         } else if (name.equalsIgnoreCase(config.getString("channelpoints.lava"))) {
             actions.blockToLava();
         } else if (name.equalsIgnoreCase(config.getString("channelpoints.mob"))) {

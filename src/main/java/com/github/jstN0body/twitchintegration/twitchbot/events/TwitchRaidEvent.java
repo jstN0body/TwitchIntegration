@@ -1,5 +1,6 @@
 package com.github.jstN0body.twitchintegration.twitchbot.events;
 
+import com.github.jstN0body.twitchintegration.Main;
 import com.github.jstN0body.twitchintegration.commands.EnableCommand;
 import com.github.philippheuer.events4j.simple.SimpleEventHandler;
 import com.github.twitch4j.chat.events.channel.RaidEvent;
@@ -8,21 +9,31 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class TwitchRaidEvent {
 
-    public TwitchRaidEvent(SimpleEventHandler eventHandler) {
+    private final Main plugin;
+
+    public TwitchRaidEvent(SimpleEventHandler eventHandler, Main plugin) {
         eventHandler.onEvent(RaidEvent.class, this::onRaid);
+        this.plugin = plugin;
     }
 
     public void onRaid(RaidEvent event) {
         if (!EnableCommand.integrationEnabled) return;
 
         Bukkit.broadcastMessage(ChatColor.BLUE + event.getRaider().getName() + " has raided with " + event.getViewers() + " viewers!!!");
-        Object[] players = Bukkit.getOnlinePlayers().toArray();
-        for (Object object : players) {
-            Player player = (Player) object;
-            player.addPotionEffect(new PotionEffect(PotionEffectType.BAD_OMEN, 36000, Math.round(event.getViewers())));
-        }
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Object[] players = Bukkit.getOnlinePlayers().toArray();
+                for (Object object : players)
+                {
+                    Player player = (Player) object;
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.BAD_OMEN, 36000, event.getViewers()));
+                }
+            }
+        }.runTask(plugin);
     }
 }
