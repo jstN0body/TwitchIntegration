@@ -83,9 +83,7 @@ public class Actions {
         new BukkitRunnable() {
             @Override
             public void run() {
-                Object[] players = Bukkit.getOnlinePlayers().toArray();
-                for (Object object : players) {
-                    Player player = (Player) object;
+                for (Player player : Bukkit.getOnlinePlayers()) {
                     World nether = Bukkit.getWorld(config.getString("netherworld"));
                     World overworld = Bukkit.getWorld(config.getString("world"));
                     if (player.getWorld() == overworld) {
