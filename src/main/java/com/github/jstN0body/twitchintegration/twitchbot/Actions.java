@@ -65,11 +65,7 @@ public class Actions {
                 Object[] players = Bukkit.getOnlinePlayers().toArray();
                 for (Object object : players) {
                     Player player = (Player) object;
-                    if (!inNether(player, config)) {
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "spreadplayers ~ ~ 2500 3000 false " + player.getDisplayName());
-                    } else {
-                        Bukkit.dispatchCommand(player, "function cavespread:spread");
-                    }
+                    Bukkit.dispatchCommand(player, "function cavespread:spread");
                 }
             }
         }.runTask(plugin);
@@ -92,14 +88,15 @@ public class Actions {
                     Player player = (Player) object;
                     World nether = Bukkit.getWorld(config.getString("netherworld"));
                     World overworld = Bukkit.getWorld(config.getString("world"));
-                    int radius = config.getInt("randomtpradius");
-                    int maxRange = radius + 100;
                     if (player.getWorld() == overworld) {
                         player.teleport(new Location(nether, 0, -2, 0));
                         randomTp(config);
                     } else if (inNether(player, config)) {
-                        player.teleport(new Location(overworld, 0, -2, 0));
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "spreadplayers 0 0 " + radius + " " + maxRange + " under 75 false @a");
+                        try {
+                            player.teleport(player.getBedSpawnLocation());
+                        } catch (Exception ignored) {
+                            player.teleport(overworld.getSpawnLocation());
+                        }
                     }
                 }
             }
@@ -250,6 +247,20 @@ public class Actions {
                         Bukkit.dispatchCommand(player, "map " + player.getDisplayName() + " Fortress nether");
                     } else {
                         Bukkit.dispatchCommand(player, "map " + player.getDisplayName() + " Temple overworld");
+                    }
+                }
+            }
+        }.runTask(plugin);
+    }
+
+    public void givePlanks() {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    ItemStack planks = new ItemStack(Material.OAK_PLANKS);
+                    for (int i = 0 ; i < 4 ; i++) {
+                        player.getInventory().addItem(planks);
                     }
                 }
             }

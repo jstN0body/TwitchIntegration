@@ -4,7 +4,7 @@
 channel:
   - "channel"
 
-# use https://twitchtokengenerator.com/ to get your oauth token (press "uhhh what? Just take me to the site.)
+# use https://twitchtokengenerator.com/ to get your oauth token (press "uhhh what? Just take me to the site.")
 # Select ALL scopes
 # make sure to keep quotes around the token
 # the first entry will be the account used to login to chat
@@ -61,6 +61,8 @@ bitsforkill: 900 # straight up kill the player
 
 bitsforcompass: 1250 # give a compass to a structure (nether fortress if in nether, desert temple if in overworld)
 
+bitsforplanks: 90 # give players wood planks
+
 # these are the names of the channel point rewards to do the actions above
 # make sure to add channel point rewards with these names to your twitch or change the names below to match already existing rewards
 # remove the name if you don't want one to happen
@@ -83,6 +85,7 @@ channelpoints:
   burn: "burn player"
   kill: "kill player"
   compass: "target compass"
+  planks: "give planks"
 
 # add channel names here to omit their messages from the in-game chat
 mutedusers:
