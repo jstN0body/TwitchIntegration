@@ -5,6 +5,7 @@ import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -61,10 +62,13 @@ public class Actions {
         new BukkitRunnable() {
             @Override
             public void run() {
-                Object[] players = Bukkit.getOnlinePlayers().toArray();
-                for (Object object : players) {
-                    Player player = (Player) object;
-                    Bukkit.dispatchCommand(player, "function cavespread:spread");
+                for (int i = 0 ; i < Bukkit.getOnlinePlayers().toArray().length ; i++) {
+                    Object[] players = Bukkit.getOnlinePlayers().toArray();
+                    if (i == 0) {
+                        Bukkit.dispatchCommand(((Player) players[i]), "function cavespread:spread");
+                    } else {
+                        ((Player) players[i]).teleport(((Player) players[0]).getLocation());
+                    }
                 }
             }
         }.runTask(plugin);
