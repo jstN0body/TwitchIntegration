@@ -1,6 +1,6 @@
 name: TwitchIntegration
 main: com.github.jstN0body.twitchintegration.Main
-version: "2.3.8-SNAPSHOT"
+version: "2.4-SNAPSHOT"
 api-version: 1.16
 author: jstN0body
 description: Thank you to TigerCipher, Hexafice, and Prodigy from the twitch4j discord server for helping me with parts of this.
@@ -9,3 +9,5 @@ commands:
   twitchmc:
     description: "follow the command with enable/disable to enable/disable the plugin
     (If the plugin has been enabled while the server is running, you must RESTART the server to make changes, reloading will break the plugin.)"
+  nether:
+    description: "to the nether AND BEYOND!"
