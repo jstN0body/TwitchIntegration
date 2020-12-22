@@ -1,7 +1,10 @@
 package com.github.jstN0body.twitchintegration.twitchbot;
 
 import com.github.jstN0body.twitchintegration.Main;
-import com.github.jstN0body.twitchintegration.twitchbot.events.*;
+import com.github.jstN0body.twitchintegration.twitchbot.events.ChannelPointRedeem;
+import com.github.jstN0body.twitchintegration.twitchbot.events.CheerEvent;
+import com.github.jstN0body.twitchintegration.twitchbot.events.SubscribeEvent;
+import com.github.jstN0body.twitchintegration.twitchbot.events.TwitchRaidEvent;
 import com.github.philippheuer.credentialmanager.domain.OAuth2Credential;
 import com.github.philippheuer.events4j.simple.SimpleEventHandler;
 import com.github.twitch4j.TwitchClient;
