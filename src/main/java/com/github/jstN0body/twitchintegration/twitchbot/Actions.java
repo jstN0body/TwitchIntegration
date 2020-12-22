@@ -1,6 +1,5 @@
 package com.github.jstN0body.twitchintegration.twitchbot;
 
-import com.github.jstN0body.twitchintegration.CustomMap;
 import com.github.jstN0body.twitchintegration.Main;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
