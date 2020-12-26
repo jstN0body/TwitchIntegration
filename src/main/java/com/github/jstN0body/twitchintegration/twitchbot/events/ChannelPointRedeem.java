@@ -7,6 +7,7 @@ import com.github.philippheuer.events4j.simple.SimpleEventHandler;
 import com.github.twitch4j.pubsub.events.RewardRedeemedEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 
@@ -47,30 +48,10 @@ public class ChannelPointRedeem {
             actions.giveChickenNugget();
         } else if (name.equalsIgnoreCase(config.getString("channelpoints.tnt"))) {
             actions.spawnTnt();
-        } else if (name.equalsIgnoreCase(config.getString("channelpoints.sky"))) {
-            actions.teleportToSky(config);
         } else if (name.equalsIgnoreCase(config.getString("channelpoints.food"))) {
-            actions.giveFood(config);
+            actions.giveItem(config);
         } else if (name.equalsIgnoreCase(config.getString("channelpoints.wither"))) {
             actions.spawnWither();
-        } else if (name.equalsIgnoreCase(config.getString("channelpoints.addtofilter"))) {
-            String materialInput = event.getRedemption().getUserInput().replace('-', '_').toUpperCase();
-            Bukkit.broadcastMessage(materialInput);
-        } else if (name.equalsIgnoreCase(config.getString("channelpoints.lava"))) {
-            actions.blockToLava();
-        } else if (name.equalsIgnoreCase(config.getString("channelpoints.mob"))) {
-            EntityType e = EntityType.valueOf(event.getRedemption().getUserInput().toUpperCase());
-            if (config.getStringList("mobfilter").contains(e.name())) {
-                actions.spawnMob(EntityType.CREEPER);
-            } else {
-                actions.spawnMob(e);
-            }
-        } else if (name.equalsIgnoreCase("channelpoints.burn")) {
-            actions.burnPlayer();
-        } else if (name.equalsIgnoreCase("channelpoints.kill")) {
-            actions.killPlayer();
-        } else if (name.equalsIgnoreCase("channelpoints.compass")) {
-            actions.giveMap();
         }
     }
 }

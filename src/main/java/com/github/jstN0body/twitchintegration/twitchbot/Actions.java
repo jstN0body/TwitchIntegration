@@ -5,7 +5,6 @@ import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -144,32 +143,18 @@ public class Actions {
         }.runTask(plugin);
     }
 
-    public void teleportToSky(FileConfiguration config) {
+    public void giveItem(FileConfiguration config) {
         new BukkitRunnable() {
             @Override
             public void run() {
                 Object[] players = Bukkit.getOnlinePlayers().toArray();
                 for (Object object : players) {
                     Player player = (Player) object;
-                    Location location = player.getLocation();
-                    location.setY(config.getDouble("height"));
-                    location.getBlock().setType(Material.OBSIDIAN);
-                    player.teleport(location.getBlock().getLocation().add(0, 1, 0));
-                }
-            }
-        }.runTask(plugin);
-    }
-
-    public void giveFood(FileConfiguration config) {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Object[] players = Bukkit.getOnlinePlayers().toArray();
-                for (Object object : players) {
-                    Player player = (Player) object;
-                    for (int i = 0 ; i < config.getInt("foodamount") ; i++) {
-                        player.getInventory().addItem(new ItemStack(Material.COOKED_BEEF));
-                    }
+                    ItemStack log = new ItemStack(Material.OAK_LOG);
+                    ItemStack food = new ItemStack(Material.COOKED_BEEF);
+                    log.setAmount(config.getInt("foodamount"));
+                    food.setAmount(4);
+                    player.getInventory().addItem(log, food);
                 }
             }
         }.runTask(plugin);
@@ -193,78 +178,5 @@ public class Actions {
 
     private boolean inNether(Player player, FileConfiguration config) {
         return player.getWorld() == Bukkit.getWorld(config.getString("netherworld"));
-    }
-
-    public void addToFilter(String block) {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "filter " + block);
-            }
-        }.runTask(plugin);
-    }
-
-    public void blockToLava() {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                for (Player player : Bukkit.getOnlinePlayers()) {
-                    player.getTargetBlock(null, 5).setType(Material.LAVA);
-                }
-            }
-        }.runTask(plugin);
-    }
-
-    public void burnPlayer() {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                for (Player player : Bukkit.getOnlinePlayers()) {
-                    player.getLocation().getBlock().setType(Material.FIRE);
-                }
-            }
-        }.runTask(plugin);
-    }
-
-    public void killPlayer() {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                for (Player player : Bukkit.getOnlinePlayers()) {
-                    player.damage(9999999);
-                }
-            }
-        }.runTask(plugin);
-    }
-
-    public void giveMap() {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Object[] players = Bukkit.getOnlinePlayers().toArray();
-                for (Object object : players) {
-                    Player player = (Player) object;
-                    if (player.getWorld().getEnvironment() == World.Environment.NETHER) {
-                        Bukkit.dispatchCommand(player, "map " + player.getDisplayName() + " Fortress nether");
-                    } else {
-                        Bukkit.dispatchCommand(player, "map " + player.getDisplayName() + " Temple overworld");
-                    }
-                }
-            }
-        }.runTask(plugin);
-    }
-
-    public void givePlanks() {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                for (Player player : Bukkit.getOnlinePlayers()) {
-                    ItemStack planks = new ItemStack(Material.OAK_PLANKS);
-                    for (int i = 0 ; i < 4 ; i++) {
-                        player.getInventory().addItem(planks);
-                    }
-                }
-            }
-        }.runTask(plugin);
     }
 }

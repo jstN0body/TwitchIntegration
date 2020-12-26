@@ -49,33 +49,10 @@ public class CheerEvent {
             actions.giveChickenNugget();
         } else if (bits == config.getInt("bitsfortnt")) {
             actions.spawnTnt();
-        } else if (bits == config.getInt("bitsforsky")) {
-            actions.teleportToSky(config);
         } else if (bits == config.getInt("bitsforfood")) {
-            actions.giveFood(config);
+            actions.giveItem(config);
         } else if (bits == config.getInt("bitsforwither")) {
             actions.spawnWither();
-        } else if (bits == config.getInt("bitsforfilter")) {
-            try {
-                actions.addToFilter(Material.matchMaterial(event.getData().getChatMessage()).name());
-            } catch (Exception ignored) {
-                Bukkit.broadcastMessage(ChatColor.RED + "User has not specified a block to filter.");
-            }
-        } else if (bits == config.getInt("bitsforlava")) {
-            actions.blockToLava();
-        } else if (bits == config.getInt("bitsformob")) {
-            EntityType e = EntityType.valueOf(event.getData().getChatMessage().toUpperCase());
-            if (config.getStringList("mobfilter").contains(e.name())) {
-                actions.spawnMob(EntityType.CREEPER);
-            } else {
-                actions.spawnMob(e);
-            }
-        } else if (bits == config.getInt("bitsforburn")) {
-            actions.burnPlayer();
-        } else if (bits == config.getInt("bitsforkill")) {
-            actions.killPlayer();
-        } else if (bits == config.getInt("bitsforcompass")) {
-            actions.giveMap();
         }
     }
 }

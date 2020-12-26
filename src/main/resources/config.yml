@@ -39,27 +39,10 @@ bitsforchickennugget: 350 # gives everyone a chicken nugget (don't question)
 
 bitsfortnt: 400 # summons tnt yay
 
-
-bitsforsky: 450 # teleport players to a platform in the sky
-height: 250 # how high up the platform will be
-
 bitsforfood: 500 # gives players some food
 foodamount: 16 # amount of food to give
 
 bitsforwither: 2500
-
-bitsforfilter: 550 # add a block to the block filter (this block will be able to be broken when nobreak is on.)
-
-bitsforlava: 500 # turn the player's targeted block to lava
-
-bitsformob: 1000 # spawn a requested mob
-mobfilter: ["WITHER", "ENDER_DRAGON"] # mobs that cannot be requested (to be replaced by a creeper)
-
-bitsforburn: 125 # light the player on fire
-
-bitsforkill: 900 # straight up kill the player
-
-bitsforcompass: 1250 # give a compass to a structure (nether fortress if in nether, desert temple if in overworld)
 
 bitsforplanks: 90 # give players wood planks
 
@@ -76,15 +59,8 @@ channelpoints:
   inventoryclear: "clear inventory"
   chickennugget: "give chicken nugget"
   tnt: "spawn tnt"
-  sky: "tp to sky"
   food: "give food"
   wither: "spawn wither"
-  addtofilter: "filter block" # requires user input
-  lava: "target block to lava"
-  mob: "spawn mob" # requires user input
-  burn: "burn player"
-  kill: "kill player"
-  compass: "target compass"
   planks: "give planks"
 
 # add channel names here to omit their messages from the in-game chat
