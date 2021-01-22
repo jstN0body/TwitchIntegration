@@ -1,6 +1,6 @@
 package com.github.jstN0body.twitchintegration.twitchbot;
 
-import com.github.jstN0body.twitchintegration.Main;
+import com.github.jstN0body.twitchintegration.Plugin;
 import com.github.jstN0body.twitchintegration.twitchbot.events.ChannelPointRedeem;
 import com.github.jstN0body.twitchintegration.twitchbot.events.CheerEvent;
 import com.github.jstN0body.twitchintegration.twitchbot.events.SubscribeEvent;
@@ -18,7 +18,7 @@ import java.util.List;
 
 public class Bot {
 
-    public Bot(Main plugin) {
+    public Bot(Plugin plugin) {
         FileConfiguration config = plugin.getConfig();
 
         List<OAuth2Credential> credentials = new ArrayList<>();
@@ -39,7 +39,7 @@ public class Bot {
             twitchChat.joinChannel(channel);
         }
 
-        List<String> ids = config.getStringList("channelid");
+        List<String> ids = config.getStringList("channel_id");
         TwitchPubSub twitchPubSub = twitchClient.getPubSub();
         for (int i = 0 ; i < credentials.size() ; i++) {
                 twitchPubSub.listenForCheerEvents(credentials.get(i), ids.get(i));

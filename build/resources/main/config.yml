@@ -1,70 +1,45 @@
-# PUT A SPACE AFTER EACH DASH IDIOTS!
-# if you want to add more channels, add another dash but make sure you add the channel name, oauth, and id
+# If you want to add more channels, add another dash but make sure you add the channel name, oauth, and id
 # your channel name e.g. twitch.tv/jstN0body -> jstN0body
 channel:
   - "channel"
 
 # use https://twitchtokengenerator.com/ to get your oauth token (press "uhhh what? Just take me to the site.")
-# Select ALL scopes
-# make sure to keep quotes around the token
-# the first entry will be the account used to login to chat
+# Select ALL scopes and generate the token.
+# (make sure to keep quotes around the token)
 oauth:
   - "oauth"
 
 # use https://codepen.io/Alca/pen/yLBdjyb and type your channel name to get your id
-channelid:
+channel_id:
   - "id"
 
-# these are the bit amounts for certain actions to happen to the players
-# if you don't want a certain action to happen set the cost to 0
-bitsforcreeper: 15 # spawns a creeper at each person
+rewards:
+  give_food:
+    bits: 300
+    channel_points: "give food"
+    amount: 2
 
-bitsforhalfhealth: 50 # puts players to half of their current health
+  spawn_creeper:
+    bits: 100
+    channel_points: "spawn creeper"
 
-bitsfordiamonds: 100  # gives players an amount of diamonds
-amountofdiamonds: 1 # the amounts of diamonds to give
+  half_health:
+    bits: 200
+    channel_points: "half health"
 
-bitsforrandomtp: 150 # randomly teleport the players
+  spawn_tnt:
+    bits: 250
+    channel_points: "spawn tnt"
 
-bitsforweather: 200 # thunderstorms for a certain amount of time
-weathertime: 6000 # the time in ticks (20 ticks = 1 second)
+  give_diamonds:
+    bits: 150
+    channel_points: "give diamonds"
+    amount: 2
 
-bitsfordimensionswitch: 250 # swap the players to the nether or back to the overworld
-netherworld: world_nether # the name of your nether world (the name of your main world followed by _nether)
-world: world # the name of your world
+  spawn_wither:
+    bits: 2500
+    channel_points: "spawn wither"
 
-bitsforinventoryclear: 300 # clears the players' inventories
-
-bitsforchickennugget: 350 # gives everyone a chicken nugget (don't question)
-
-bitsfortnt: 400 # summons tnt yay
-
-bitsforfood: 500 # gives players some food
-foodamount: 16 # amount of food to give
-
-bitsforwither: 2500
-
-bitsforplanks: 90 # give players wood planks
-
-# these are the names of the channel point rewards to do the actions above
-# make sure to add channel point rewards with these names to your twitch or change the names below to match already existing rewards
-# remove the name if you don't want one to happen
-channelpoints:
-  creeper: "spawn creeper"
-  halfhealth: "half health"
-  diamonds: "give diamonds"
-  randomtp: "random tp"
-  weather: "thunderstorm"
-  dimensionswitch: "switch dimensions"
-  inventoryclear: "clear inventory"
-  chickennugget: "give chicken nugget"
-  tnt: "spawn tnt"
-  food: "give food"
-  wither: "spawn wither"
-  planks: "give planks"
-
-# add channel names here to omit their messages from the in-game chat
-mutedusers:
-  - nightbot
-  - streamelements
-  - streamlabs
+  clear_inventory:
+    bits: 600
+    channel_points: "clear inventory"

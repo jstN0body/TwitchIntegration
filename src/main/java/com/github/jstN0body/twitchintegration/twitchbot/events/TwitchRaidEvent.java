@@ -1,6 +1,6 @@
 package com.github.jstN0body.twitchintegration.twitchbot.events;
 
-import com.github.jstN0body.twitchintegration.Main;
+import com.github.jstN0body.twitchintegration.Plugin;
 import com.github.jstN0body.twitchintegration.commands.EnableCommand;
 import com.github.philippheuer.events4j.simple.SimpleEventHandler;
 import com.github.twitch4j.chat.events.channel.RaidEvent;
@@ -13,9 +13,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class TwitchRaidEvent {
 
-    private final Main plugin;
+    private final Plugin plugin;
 
-    public TwitchRaidEvent(SimpleEventHandler eventHandler, Main plugin) {
+    public TwitchRaidEvent(SimpleEventHandler eventHandler, Plugin plugin) {
         eventHandler.onEvent(RaidEvent.class, this::onRaid);
         this.plugin = plugin;
     }

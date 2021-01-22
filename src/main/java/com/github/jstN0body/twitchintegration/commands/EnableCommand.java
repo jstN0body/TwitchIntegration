@@ -1,6 +1,5 @@
 package com.github.jstN0body.twitchintegration.commands;
 
-import com.github.jstN0body.twitchintegration.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -8,13 +7,9 @@ import org.bukkit.command.CommandSender;
 
 public class EnableCommand implements CommandExecutor {
 
-    private final Main plugin;
-
     public static boolean integrationEnabled = false;
 
-    public EnableCommand(Main plugin) {
-        this.plugin = plugin;
-
+    public EnableCommand() {
         Bukkit.getPluginCommand("twitchmc").setExecutor(this);
     }
 
